@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>吃了么-我的账户</title>
+	<link rel="stylesheet" href="css/wsdc.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	</head>
+<body>
+
+
+<ul class="navbar">
+<div class="container">
+	<li><a class="logo" href="main.aspx"><img title="返回首页" src="images/logo2.png" /></a></li>
+	<li><a href="main.aspx"><i class="icon-food"></i>首页</a></li>
+	<li><a href="myaccount.html">我的账户</a></li>
+	<li><a href="#"><i class="icon-envelope-alt"></i>消息</a></li>
+	<li><input class="search"type="text" placeholder="搜索关键字"></><span class="icon-search searchbtn"></span></li>
+	<li><a class="dropdown"><i class="icon-shopping-cart"></i>购物车			
+				<div class="dropdown-text">
+                    <ul class="cart">
+                        
+                    </ul>
+				</div></a></li>
+				</div>	
+</ul>
+<div class="main">			
+         <div class="myinfo"><img src="images/images.jpg"/><div class="text"><h2>欢迎您使用吃了么外卖</h2><p>账户安全：高<i class="icon-lock icon-large" style="color :green"></i></p></div>
+    <ul><li class="myaddress"><a href="#a">收货地址</a></li><li class="myorders"><a href="#b">我的订单</a></li></ul></div>
+    <h2 id="a">收货地址</h2>
+    <button id="add-address"><i class="icon-plus"></i>新增地址</button><div class="address-edit"><button style="position:absolute;right:10px;top:10px;" id="cls-edit"><i class="icon-remove"></i></button><h2>新增收货地址</h2><div class="body"></div></div>
+    <div class="address">
+        <!--<div class="address-col">
+            <div class="remove" onclick="this.parentNode.style.display='none'"><i class="icon-trash"></i></div>           
+            <div class="dizhi">收货地址：<p>江西现代职业技术学院职业技术学院江西现代职业技术学院江西现代职业技术学院</p></div><br>
+            <div class="contact">收货人：<p>江西现代</p></div><div class="phone">联系电话：<p>17770061386</p></div>                 
+        </div>
+        <div class="address-col">
+            <div class="remove" onclick="this.parentNode.style.display='none'"><i class="icon-trash"></i></div>
+            <div class="dizhi">收货地址：<p>江西现代职业技术学院职业技术学院江西现代职业技术学院江西现代职业技术学院</p></div><br>
+            <div class="contact">收货人：<p>江西现代</p></div><div class="phone">联系电话：<p>17770061386</p></div>
+        </div>
+        <div class="address-col">
+            <div class="remove" onclick="this.parentNode.style.display='none'"><i class="icon-trash"></i></div>
+            <div class="dizhi">收货地址：<p>江西现代职业技术学院职业技术学院江西现代职业技术学院江西现代职业技术学院</p></div><br>
+            <div class="contact">收货人：<p>江西现代</p></div><div class="phone">联系电话：<p>17770061386</p></div>
+        </div>   -->     
+    </div>
+    <h2 id="b">我的订单</h2>
+    <div class="orders">
+        <ul class="orders-info">
+            <li><i class="icon-list-ol"></i>订单编号</li>
+            <li><i class="icon-calendar"></i>订单时间</li>
+            <li class="orders-food"><i class="icon-list-ul"></i>货物清单</li>
+            <li title="江西现代职业技术学院职业技术学院江西现代职业技术学院江西现代职业17770061386 李晋峰"><i class="icon-truck"></i>收货人信息</li>
+            <li><i class="icon-comment-alt"></i>备注信息</li>
+         </ul>
+        <div id="orders">
+        <!--<div class="orders-details">
+            <div class="order-no">201598135202851</div>
+            <div class="order-date">2016-11-2 1:4:45</div>
+            <div class="order-food">
+            共2件商品，一共24块钱
+            <ul class="cart"><li><img src="images/1.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+    <li><img src="images/2.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+</ul></div>
+            <div class="order-address"><i class="icon-user"></i></div>
+            <div class="order-memo">多加什么都多加一点</div>
+            </div>
+        <div class="orders-details">
+            <div class="order-no">201598135202851</div>
+            <div class="order-date">2016-11-2 1:4:45</div>
+            <div class="order-food">
+                共2件商品，一共24块钱
+                <ul class="cart">
+                    <li><img src="images/1.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                    <li><img src="images/2.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                </ul>
+            </div>
+            <div class="order-address"><i class="icon-user"></i></div>
+            <div class="order-memo">多加什么都多加一点</div>
+        </div> --> 
+       </div>         
+    </div>
+    </div>
+    <script language="javascript" src="js/jquery.js"></script>
+<script language="javascript">
+    function deleteaddress(id) {
+        $.post("Action.aspx?action=deleteaddress&aid=" + id, $("#" + id).hide());        
+    }
+    $(function () {
+        $("#add-address").click(function () {
+            $(".address-edit").show();
+            $(".address-edit .body").load("location.html");
+        });
+        $("#cls-edit").click(function () {
+            $(".address-edit").hide();
+            $(".address").load("Action.aspx?action=editaddress");
+        });
+        $("#orders").load("Action.aspx?action=loadorders");
+        $(".address").load("Action.aspx?action=editaddress");
+        $(".dropdown").hover(function () {
+            $(".dropdown-text").html("<i class='icon-spinner icon-spin'></i>正在加载");
+            $(".dropdown-text").load("Action.aspx?action=loadcart");
+            $(".label").load("Action.aspx?action=sumprice");
+        });
+    });
+</script>
+</body>
+</html>

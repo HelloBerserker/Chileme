@@ -1,0 +1,87 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>确认订单</title>
+	<link rel="stylesheet" href="css/wsdc.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	</head>
+<body>
+
+
+<ul class="navbar">
+<div class="container">
+	<li><a class="logo" href="main.aspx"><img title="返回首页" src="images/logo2.png" /></a></li>
+	<li><a href="main.aspx"><i class="icon-food"></i>首页</a></li>
+	<li><a href="myaccount.html">我的账户</a></li>
+	<li><a href="#"><i class="icon-envelope-alt"></i>消息</a></li>
+	<li><input class="search"type="text" placeholder="搜索关键字"></><span class="icon-search searchbtn"></span></li>
+	<li><a class="dropdown"><i class="icon-shopping-cart"></i>购物车			
+				<div class="dropdown-text">
+                    <ul class="cart">
+                        
+                    </ul>
+				</div></a></li>
+				</div>	
+</ul>
+<div class="main">			
+          <h1>填写并核对订单信息</h1>    
+           <h2>收货人信息</h2>
+    <div class="panel">
+       <select id="address">
+           
+       </select>
+    <br><button id="add-address"><i class="icon-plus"></i>新增地址</button><div class="address-edit"><button style="position:absolute;right:10px;top:10px;" id="cls-edit"><i class="icon-remove"></i></button><h2>新增收货地址</h2><div class="body"></div></div></div>
+            <h2>支付方式</h2>
+    <div class="panel"><ul class="check-list"><li class="checked">货到付款</li><li class="disable">微信支付</li><li class="disable">支付宝</li></ul></div>
+    <h2>给卖家留言</h2>
+    <div class="panel"><textarea id="memo" maxlength="40" placeholder="您的要求我们会尽量满足"></textarea><br><span class="tip">多加饭</span><span class="tip">别放葱</span><span class="tip">少放辣椒</span><span class="tip">别加香菜</span><span class="tip">不吃姜</span></div>
+            <h2>送货清单</h2>
+    <div class="panel"><ul class="check-list"><p>送货方式</p><li class="checked">送货上门</li><li class="disable">到店自提</li></ul><div class="cart-list"></div>
+       
+    </div>              
+    <div class='button' id='submit'>提交订单</div>
+</div>
+    <script language="javascript" src="js/jquery.js"></script>
+<script language="javascript">
+    $(function () {
+        $("#cls-edit").click(function () {
+            $(".address-edit").hide();
+            $("#address").load("Action.aspx?action=loadaddress");
+        });
+        $(".tip").click(function () {
+            var memo = $("#memo").val();
+            var tip = $(this).html() + ";";
+            memo = memo + tip;
+            $("#memo").val(memo);
+        });
+        $("#address").load("Action.aspx?action=loadaddress");
+        $(".cart-list").load("Action.aspx?action=loadcart&check=on");
+               /* $(".check-list li:not('.disable')").click(function () {
+            $(".check-list li.checked").removeClass("checked");
+            $(this).addClass("checked");
+        });*/
+        $("#add-address").click(function () {
+            $(".address-edit").show();
+            $(".address-edit .body").load("location.html");
+        });
+            $(".dropdown").hover(function () {
+            $(".dropdown-text").html("<i class='icon-spinner icon-spin'></i>正在加载");
+            $(".dropdown-text").load("Action.aspx?action=loadcart");
+            });
+            $("#submit").click(function () {
+                var address = $("#address").val();
+                var memo = $("#memo").val();
+                var url;
+                if (address.length < 11)
+                    alert("收货地址出现异常");
+                else {
+                    url = "Action.aspx?action=submit&memo=" + memo + "&address=" + address;
+                    $.post(url, function () {
+                        location.href = "myaccount.html";
+                    });
+                };
+            });
+    });
+</script>
+</body>
+</html>

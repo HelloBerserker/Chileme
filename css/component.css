@@ -1,0 +1,273 @@
+*{
+	margin:0;padding:0;
+}
+/* Main container */
+.main1{
+	width: 90%;
+	//max-width: 69em;
+	margin: 0 auto;
+	padding: 0 1.875em 3.125em 1.875em;
+}
+.cbp-vm-switcher {
+	padding: 20px;
+	border-left: 2px solid rgb(230,2,19);
+	border-right: 2px solid rgb(230,2,19);
+	border-bottom:2px solid rgb(230,2,19);
+}
+
+/* options/select wrapper with switch anchors */
+.cbp-vm-options {
+	text-align: right;
+	padding-bottom: 10px;
+	border-bottom: 3px solid rgb(230,2,19);
+}
+
+.cbp-vm-options a {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #d0d0d0;
+	margin: 2px;
+}
+
+.cbp-vm-options a:hover,
+.cbp-vm-options a.cbp-vm-selected {
+	color: rgb(230,2,19);
+}
+
+.cbp-vm-options a:before {
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 30px;
+	text-align: center;
+	display: inline-block;
+}
+
+/* General style of switch items' list */
+
+.cbp-vm-switcher ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/* Clear eventual floats */
+.cbp-vm-switcher ul:before, 
+.cbp-vm-switcher ul:after { 
+	content: " "; 
+	display: table; 
+}
+
+.cbp-vm-switcher ul:after { 
+	clear: both; 
+}
+
+.cbp-vm-switcher ul li {
+	display: block;
+	position: relative;
+}
+
+.cbp-vm-image {
+	display: block;
+	margin: 0 auto;
+}
+
+.cbp-vm-image img {
+	display: inline-block;
+	max-width: 100%;
+	border: none;
+}
+
+.cbp-vm-title {      
+    margin:10px auto;	
+	padding: 0;
+}
+
+.cbp-vm-price {    
+	color:rgb(228,57,60);
+}
+
+.cbp-vm-add {    
+	color: #fff;
+	background: rgb(230,2,19);
+	padding: 10px 20px;
+	border-radius: 2px;
+	margin: 0px auto;
+	display: inline-block;
+	transition: background 0.2s;
+    text-decoration:none;
+}
+.btcheck{
+	color: #fff;
+	background: rgb(230,2,19);
+	padding: 10px 20px;
+	border-radius: 2px;
+	margin:10px 0px 10px 220px;
+	display: inline-block;
+	transition: background 0.2s;
+}
+.btcheck:hover{
+	color:#fff;
+}
+.cbp-vm-add:hover{
+	color: #fff;
+	background: rgb(183,57,60);
+}
+
+.cbp-vm-add:before {
+	margin-right: 5px;
+}
+
+/* Common icon styles */
+/* Individual view mode styles */
+
+/* Large grid view */
+.cbp-vm-view-grid ul {
+	text-align: center;
+}
+
+.cbp-vm-view-grid ul li {
+	width:20%;
+	text-align: center;
+	padding: 25px;
+	margin: 20px 0 0;
+	display: inline-block;
+	min-height: 420px;
+	vertical-align: top;
+}
+
+.cbp-vm-view-grid .cbp-vm-title {
+	font-size: 2em;
+	text-align: center;
+}
+
+.cbp-vm-view-grid .cbp-vm-details {
+	max-width: 300px;
+	min-height: 70px;
+	margin: 0 auto;
+} 
+
+.cbp-vm-view-grid .cbp-vm-price {
+	margin: 10px 0;
+	font-size: 1.5em;
+}
+
+
+/* List view */
+.cbp-vm-view-list li {
+	padding: 20px 0;
+	white-space: nowrap;
+}
+
+.cbp-vm-view-list .cbp-vm-image,
+.cbp-vm-view-list .cbp-vm-title,
+.cbp-vm-view-list .cbp-vm-details,
+.cbp-vm-view-list .cbp-vm-price,
+.cbp-vm-view-list .cbp-vm-add {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.cbp-vm-view-list .cbp-vm-image {
+	width: 10%;
+}
+
+.cbp-vm-view-list .cbp-vm-title {
+	font-size: 1.3em;
+	padding: 0 10px;
+	white-space: normal;
+	width: 23%;
+}
+
+.cbp-vm-view-list .cbp-vm-price {
+	font-size: 1.3em;
+	width: 10%;
+}
+
+.cbp-vm-view-list .cbp-vm-details {
+	width: 40%;
+	padding: 0 15px;
+	overflow: hidden;
+	white-space: normal;
+}
+
+.cbp-vm-view-list .cbp-vm-add {
+	margin: 0;
+}
+
+@media screen and (max-width: 66.7em) {
+	.cbp-vm-view-list .cbp-vm-details  {
+		width: 30%;
+	}
+} 
+
+@media screen and (max-width: 57em) {
+	.cbp-vm-view-grid ul li {
+		width: 49%;
+	}
+}
+
+@media screen and (max-width: 47.375em) {
+	.cbp-vm-view-list .cbp-vm-image {
+		width: 20%;
+	}
+
+	.cbp-vm-view-list .cbp-vm-title {
+		width: auto;
+	}
+
+	.cbp-vm-view-list .cbp-vm-details  {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+
+	.cbp-vm-view-list .cbp-vm-add  {
+		margin: 10px;
+	}
+}
+
+@media screen and (max-width: 40.125em) {
+	.cbp-vm-view-grid ul li {
+		width: 100%;
+	}
+}
+.sort{
+	float:left;
+	}
+.sort a{
+	font-size:16px;
+	width:auto;
+	padding:4px 8px;
+	font-weight:bold;
+	color:rgb(208,208,208);	
+}
+.sort .active{
+	color:rgb(183,57,60);
+}
+.cart{
+		background:white;
+			}
+	.cart li{
+		z-index:2;
+		list-stlye:none;
+		margin:0px;
+		padding:0px;		
+		height:60px;
+		background-color:rgb(245,245,245);
+	}
+	.cart img{
+		width:70px;
+		height:50px;
+		border:solid 1px rgb(105,105,105);		
+	}
+	.cart li a{
+		margin:auto 20px;
+		cursor:pointer;
+	}
+	.cart li:hover{
+		background-color:rgb(255,255,255);
+		}

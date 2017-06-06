@@ -1,0 +1,88 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+ <meta http-equiv=Content-Type content="text/html;charset=utf-8"><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/GlobalProvinces_main.js"></script>
+<script type="text/javascript" src="js/GlobalProvinces_extend.js"></script>
+<script type="text/javascript" src="js/initLocation.js"></script>
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<style rel="stylesheet" type="text/css">
+    form input, form select {
+        padding: 5px 8px;
+        font-size: 16px;
+    }
+form input{
+	margin:10px auto;
+	padding: 5px 8px;
+	display:inline-block;
+}
+form span{
+	color:#E45050;
+	font-size:14px;
+	display: inline-block;
+}
+#info{
+	padding: 4px 8px;
+	color:#E45050;
+}
+</style>
+</head>
+<body>
+<form action="" method="post" style="margin:0px;" target="submitObj"> 
+<select id="sheng" name="province">
+	  		 
+	</select> 省
+	
+	<select id="shi" name="city">
+	 
+	</select> 市
+	
+	<select id="xian" name="country" >
+ 
+	</select> 县
+	
+	 <select id="xiang" name="street" >
+	  	 
+	</select>
+	<br><br>
+	<input type="text" id="house" placeholder="详细地址" /><span>*具体地址</span><br>
+	联系方式<br><input id="phone" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="11" type="text" placeholder="联系电话"/>
+	<input id="user" type="text" placeholder="联系人" size="14"/>	
+	</form><button id="add">确认</button>
+	<p id="info"></p>
+	<div class="here"></div>
+	
+	
+<script type="text/javascript">
+
+$(function () {
+    //$(".here").load("http://www.runoob.com");
+	initLocation({sheng_val:"江西",shi_val:"南昌",xian_val:"青山湖区",xiang_val:"紫阳大道"});})
+	$("input").focus(function(){
+		$("#info").html("");
+	})
+	$("#add").click(function(){
+		var sheng=document.getElementById("sheng").value;
+	var shi=document.getElementById("shi").value;
+	var xian=document.getElementById("xian").value;
+	var xiang=document.getElementById("xiang").value;
+	var house=document.getElementById("house").value;
+	var phone=document.getElementById("phone").value;
+	var name=document.getElementById("user").value;
+	var address=sheng+shi+xian+xiang+house;
+	var url="Action.aspx?action=addaddress&address="+address+"&name="+name+"&phone="+phone;
+	if (phone.length < 11) {
+	    $("#info").html("<i class='icon-warning-sign'></i>亲，手机号码格式错误。请重新输入");
+	    $("#phone").val("");
+	}
+	else {
+	    $.post(url, $("#info").html("<i class='icon-bell'></i>地址添加成功,您可以继续添加"));
+	    $("#phone,#house,#phone").val("");
+	    
+	    
+	}
+	});
+</script>
+</body>
+</html>

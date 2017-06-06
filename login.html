@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>吃了么-登陆账户</title>
+    <link rel="stylesheet" href="css/wsdc.css" />
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script language="javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" style="margin-top:100px;">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">登录账号</h3>
+                </div>
+                <div class="panel-body" id="inbox">
+                    <h3>欢迎使用吃了么！</h3>
+                    <form method="post">    
+                        <label for="id">账号</label>
+                        <input id="phone" type="email" class="form-control" placeholder="请输入您的手机号" required />
+                        <label for="password">密码</label>
+                        <input id="password1" type="password" class="form-control" placeholder="请输入您的密码" required />
+                        <br>
+                    </form>
+                    <button id="submit" class="btn btn-default">登陆</button>&nbsp&nbsp<label><small><a href="signup.html">立即注册</a></small></label>
+                    <br><label id="alert"></label>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <script language="javascript" src="js/jquery.js"></script>
+    <script language="javascript">
+        $("input").focus(function () {
+            $("#alert").html("");
+        })
+        $("#submit").click(function () {
+            $("#alert").html("<i class='icon-spinner icon-spin'></i>");
+            if ($("input").val() == "")
+                $("#alert").html("请验证后重新输入");            
+            else {
+                $("#alert").html("<i class='icon-spinner icon-spin'></i>");
+                var url = "Action.aspx?action=login&phone=" + $("#phone").val() + "&pwd=" + $("#password1").val();                
+                $.post(url, function(data){
+                    $("#alert").html(data);
+                    location.href = "main.aspx";
+                    if (data == "登陆成功")
+                        location.href = "main.aspx";
+                });                             
+            }
+        });
+        function confirm() {
+            if ($("#alert").html() == "登陆成功")
+                location.href = "main.aspx";
+        };
+    </script>
+</body>
+</html>

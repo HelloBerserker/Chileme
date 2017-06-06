@@ -1,0 +1,72 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>就重新写个导航栏</title>
+	<link rel="stylesheet" href="css/wsdc.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	</head>
+<body>
+
+
+<ul class="navbar">
+<div class="container">
+	<li><a class="logo" href="#"><img src="images/logo2.png"/></a></li>
+	<li><a href="#"><i class="icon-food">首页</i></a></li>
+	<li><a href="myaccount.html">我的账户</a></li>
+	<li><a href="#">消息</a></li>
+	<li><input class="searchbtn"type="text" placeholder="搜索关键字"></input><span class="icon-search button"></span></li>
+	<li><a class="dropdown"><i class="icon-shopping-cart"></i>购物车			
+				<div class="dropdown-text">
+                    <ul class="cart">
+                        <li><img src="images/1.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                        <li><img src="images/2.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                        <li><img src="images/3.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                        <li><img src="images/4.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                        <li><img src="images/5.jpg"><p>火腿炒蛋</p><i>￥12x1</i></li>
+                        <li onclick="window.location.href='test.html'">查看更多</li>
+                    </ul>
+				</div></a></li>
+				</div>	
+</ul>
+<div class="main">
+			<div class="pull-down">
+                <h1 class="success"><span class="icon-ok-circle"></span> 商品已成功加入购物车!<span>总价：￥1666</span><a class="bt-check" href="#"><i class="icon-reply"></i>返回继续购物</a>
+		<a class="bt-check" href="#">去结算 <i class="icon-chevron-right"> </i></a></h1>
+	<div class="cart-col">
+		<img src="images/4.jpg"/><h2>史上最好吃的盖浇饭腐竹烧肉盖浇饭</h2>
+		<div class="tag"><i class="icon-tasks"></i> 数量: 1 </div><div class="tag"><i class="icon-tag"></i> 单价: 12</div>
+		<ul class="edit-group"><li><i class="icon-remove"></i>删除</li><li><i class="icon-heart-empty">关注</i></li></ul>
+	</div>
+	<div class="cart-col">
+		<img src="images/5.jpg"/><h2>史上最好吃的盖浇饭腐竹烧肉盖浇饭</h2>
+		<div class="tag"><i class="icon-tasks"></i> 数量: 1 </div><div class="tag"><i class="icon-tag"></i> 单价: 12</div>
+		<ul class="edit-group"><li><i class="icon-remove"></i>删除</li><li><i class="icon-heart-empty">关注</i></li></ul>
+	</div>
+	<div class="cart-col">
+		<img src="images/7.jpg"/><h2>史上最好吃的盖浇饭腐竹烧肉盖浇饭</h2>
+		<div class="tag"><i class="icon-tasks"></i> 数量: 1 </div><div class="tag"><i class="icon-tag"></i> 单价: 12</div>
+		<ul class="edit-group"><li><i class="icon-remove"></i>删除</li><li><i class="icon-heart-empty">关注</i></li></ul>
+	</div>
+	<div class="cart-col">
+		<img src="images/8.jpg"/><h2>史上最好吃的盖浇饭腐竹烧肉盖浇饭</h2>
+		<div class="tag"><i class="icon-tasks"></i> 数量: 1 </div><div class="tag"><i class="icon-tag"></i> 单价: 12</div>
+	</div>
+	<div class="cart-col">
+		<img src="images/4.jpg"/><h2>在这里做删除测试</h2>
+		<div class="tag"><i class="icon-tasks"></i> 数量: 1 </div><div class="tag"><i class="icon-tag"></i> 单价: 12</div>
+		<ul class="edit-group"><li onclick="this.parentNode.parentNode.style.display='none';"><i class="icon-remove"></i>删除</li><li><i class="icon-heart-empty">关注</i></li></ul>
+	</div>
+                </div>
+</div>
+    <script language="javascript" src="js/jquery.js"></script>
+<script language="javascript">
+    $(function () {
+        alert(hello);
+        $(".dropdown").hover(function () {
+            $(".dropdown-text").html("<i class='icon-spinner icon-spin'></i>正在加载");
+            $(".dropdown-text").load("Action.aspx?action=loadcart");
+        });         
+    });
+</script>
+</body>
+</html>

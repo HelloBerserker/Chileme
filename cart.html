@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0019)http://home.jd.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+    <title>4部网上点餐系统</title>
+    <!--<base href="//home.jd.com/" target="_blank">-->
+	<link rel="stylesheet" type="text/css" href="css/component.css" />	
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<style type="text/css">
+	.container{
+	width:1170px;
+	margin:0px auto;}
+	body{
+	font-family:"微软雅黑";}
+	p{
+	font-family:"微软雅黑";
+	width:960px;
+	margin:auto;
+	font-size:24px;
+	line-height:1.5em;
+	text-indent:4em;
+	}
+	.cart{
+		background:white;
+			}
+	.cart li{
+		list-style:none;
+		margin:0px;
+		padding:0px;
+		width:280px;
+		height:60px;
+		background-color:rgb(245,245,245);
+	}
+	.cart img{
+		width:50px;
+		height:40px;
+		border:solid 1px rgb(105,105,105);		
+	}
+	.cart li a{
+		margin:auto 20px;
+	}
+	.cart li:hover{
+		background-color:#FFF;
+		cursor:pointer;}
+	.success{
+		color:rgb(100,200,110);
+	}
+	.cart-col{
+		height:100px;
+		background-color:rgb(245,245,245);
+		margin:20px auto;
+	}
+	.cart-col img{
+		margin:0px 10px;
+		float:left;
+		width:80px;
+		height:60px;
+		border-radius:3px;
+		border:solid 1px rgb(100,200,110);}
+	.cart-col .title{		
+		margin:10px;
+	}
+	.bt-check{
+		float:right;
+		margin:auto 30px;
+		border:2px solid rgb(228,57,60);
+		color:white;
+		background-color:rgb(228,57,60);
+		border-radius:5px;
+		font-size:18px;
+		padding:5px 10px;
+	}
+	.bt-check:hover{
+		color:rgb(228,57,60);
+		background-color:white;
+		font-weight:bold;		
+	}
+</style>
+</head>
+<body>
+<div class="container">
+	<ul class="cart" id="cart">
+		<li><img src="images/1.jpg"><a href="#">火腿炒蛋</a><i>￥12x1</i><a onclick="remove()">删除</a></li>
+		<li><img src="images/2.jpg"><a href="#">香菇滑稽</a><i>￥12x1</i><a onclick="this.parentNode.style.display='none'">删除</a></li>
+		<li><img src="images/3.jpg"><a href="#">腐竹烧肉</a><i>￥12x1</i><a onclick="this.parentNode.style.display='none'">删除</a></li>
+		<li><img src="images/4.jpg"><a href="#">肉末芋头</a><i>￥12x1</i><a onclick="this.parentNode.style.display='none'">删除</a></li>
+	</ul>
+	<input type="button" onclick="get('6','中华小当家')" value="确认"></input>
+	<input type="button" value="哈哈"></input>
+	<p>
+		I miss the taste of sweet vines
+		Oh baby why did you run away 
+		And you said the road following ain't hard  and now i can't get over you i was there for you in your darkest time
+		so i'm following the map leads to you
+		Oh i was there for you in you darkest time 
+		So i wonder 
+	</p>
+	<div>
+	<h1 class="success"><span class="icon-ok-circle"></span> 商品已成功加入购物车!<a class="bt-check" href="#"><i class="icon-reply"></i>返回继续购物</a>
+		<a class="bt-check" href="#">去结算 <i class="icon-chevron-right"> </i></a></h1>
+	<div class="cart-col">
+		<img src="images/4.jpg"/><h2>史上最好吃的盖浇饭腐竹烧肉盖浇饭</h2>
+		<div class="title"><i class="icon-tasks"></i> 数量: 1 </div>
+		
+	</div>
+	</div>
+	<script type="text/javascript">		
+		function get(pic,name){
+		var cart=document.getElementById("cart");
+		cart.innerHTML=cart.innerHTML+"<li><img src='images/"+pic+".jpg'><a href='#'>"+name+"</a><i>￥12x1</i><a onclick='this.parentNode.style.display=\"none\"'>删除</a></li>";
+		}
+		function close(){
+		this.parentNode.style.display="none";
+		}
+		function remove(){
+		var cart=document.getElementById("cart");
+		var hello=document.getElementById("h");
+		cart.removeChild(h);
+		}
+	</script>
+ </body></html>
